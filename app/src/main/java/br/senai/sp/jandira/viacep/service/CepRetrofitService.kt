@@ -4,6 +4,7 @@ import br.senai.sp.jandira.viacep.model.Cep
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface CepRetrofitService {
 
@@ -19,4 +20,9 @@ interface CepRetrofitService {
         @Path("logradouro")logradouro: String
     ): Call<List<Cep>>
 
+    @GET("cidade?name={nome_cidade}&estado={estado}")
+    fun getTeste(
+        @Query("nome_cidade") nomeCidade: String,
+        @Query("estado") estado: String
+    )
 }
